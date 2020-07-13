@@ -4,7 +4,7 @@
 * @website http://www.dynamsoft.com
 * @preserve Copyright 2020, Dynamsoft Corporation
 * @author Dynamsoft
-* @version 7.4.0.1 (js 20200518)
+* @version 7.5.0 (js 20200605)
 * @fileoverview Dynamsoft JavaScript Library for Barcode Reader
 * More info on DBR JS: https://www.dynamsoft.com/Products/barcode-recognition-javascript.aspx
 */
@@ -122,7 +122,8 @@ declare enum EnumScaleUpMode {
 	SUM_AUTO = 1,
 	SUM_LINEAR_INTERPOLATION = 2,
 	SUM_NEAREST_NEIGHBOUR_INTERPOLATION = 4,
-	SUM_SKIP = 0
+	SUM_SKIP = 0,
+	SUM_REV = 2147483648
 }
 /**
  * @see [RuntimeSettings](https://www.dynamsoft.com/help/Barcode-Reader/struct_dynamsoft_1_1_barcode_1_1_public_runtime_settings.html)
@@ -336,7 +337,9 @@ declare class BarcodeReader {
 	 * For web, `_bUseFullFeature` is false as default.
 	 * For Node.js, `_bUseFullFeature` will not work, and BarcodeReader will always work on full feature.
 	 */
-	static _bUseFullFeature: boolean;
+	protected static __bUseFullFeature: boolean;
+	static get _bUseFullFeature(): boolean;
+	static set _bUseFullFeature(value: boolean);
 	protected static _dbrWorker: Worker;
 	protected static _nextTaskID: number;
 	protected static _taskCallbackMap: Map<number, (body: any) => void>;
@@ -364,6 +367,36 @@ declare class BarcodeReader {
 	 * ```
 	 */
 	oriCanvas?: HTMLCanvasElement;
+	protected videoCanvas?: HTMLCanvasElement;
+	protected videoGlCtx?: WebGLRenderingContext | WebGL2RenderingContext;
+	/**
+	 * @ignore
+	 */
+	static _bCropRegionInJsSide: boolean;
+	/**
+	 * @ignore
+	 */
+	_regionCropedInJsSide: any;
+	/**
+	 * @ignore
+	 */
+	_timeStartDecode: any;
+	/**
+	 * @ignore
+	 */
+	_timeEnterInnerDBR: any;
+	/**
+	 * @ignore
+	 */
+	_bAutoCenterDecode: boolean;
+	/**
+	 * @ignore
+	 */
+	_bUseWebgl: boolean;
+	/**
+	 * @ignore
+	 */
+	_indexAutoCenterDecode: number;
 	protected decodeRecords: string[];
 	/**
 	 * @ignore A callback when wasm download success in browser environment.
@@ -1218,12 +1251,14 @@ declare enum EnumBarcodeColourMode {
 	BICM_LIGHT_ON_LIGHT = 8,
 	BICM_DARK_LIGHT_MIXED = 16,
 	BICM_DARK_ON_LIGHT_DARK_SURROUNDING = 32,
-	BICM_SKIP = 0
+	BICM_SKIP = 0,
+	BICM_REV = 2147483648
 }
 declare enum EnumBarcodeComplementMode {
 	BCM_AUTO = 1,
 	BCM_GENERAL = 2,
-	BCM_SKIP = 0
+	BCM_SKIP = 0,
+	BCM_REV = 2147483648
 }
 declare enum EnumBarcodeFormat_2 {
 	BF2_NULL = 0,
@@ -1239,7 +1274,9 @@ declare enum EnumBarcodeFormat_2 {
 declare enum EnumBinarizationMode {
 	BM_AUTO = 1,
 	BM_LOCAL_BLOCK = 2,
-	BM_SKIP = 0
+	BM_SKIP = 0,
+	BM_THRESHOLD = 4,
+	BM_REV = 2147483648
 }
 declare enum EnumClarityCalculationMethod {
 	ECCM_CONTRAST = 1
@@ -1250,11 +1287,13 @@ declare enum EnumClarityFilterMode {
 declare enum EnumColourClusteringMode {
 	CCM_AUTO = 1,
 	CCM_GENERAL_HSV = 2,
-	CCM_SKIP = 0
+	CCM_SKIP = 0,
+	CCM_REV = 2147483648
 }
 declare enum EnumColourConversionMode {
 	CICM_GENERAL = 1,
-	CICM_SKIP = 0
+	CICM_SKIP = 0,
+	CICM_REV = 2147483648
 }
 declare enum EnumConflictMode {
 	CM_IGNORE = 1,
@@ -1263,12 +1302,14 @@ declare enum EnumConflictMode {
 declare enum EnumDeformationResistingMode {
 	DRM_AUTO = 1,
 	DRM_GENERAL = 2,
-	DRM_SKIP = 0
+	DRM_SKIP = 0,
+	DRM_REV = 2147483648
 }
 declare enum EnumDPMCodeReadingMode {
 	DPMCRM_AUTO = 1,
 	DPMCRM_GENERAL = 2,
-	DPMCRM_SKIP = 0
+	DPMCRM_SKIP = 0,
+	DPMCRM_REV = 2147483648
 }
 declare enum EnumErrorCode {
 	DBR_SYSTEM_EXCEPTION = 1,
@@ -1333,7 +1374,8 @@ declare enum EnumErrorCode {
 declare enum EnumGrayscaleTransformationMode {
 	GTM_INVERTED = 1,
 	GTM_ORIGINAL = 2,
-	GTM_SKIP = 0
+	GTM_SKIP = 0,
+	GTM_REV = 2147483648
 }
 declare enum EnumImagePreprocessingMode {
 	IPM_AUTO = 1,
@@ -1342,7 +1384,8 @@ declare enum EnumImagePreprocessingMode {
 	IPM_GRAY_SMOOTH = 8,
 	IPM_SHARPEN_SMOOTH = 16,
 	IPM_MORPHOLOGY = 32,
-	IPM_SKIP = 0
+	IPM_SKIP = 0,
+	IPM_REV = 2147483648
 }
 declare enum EnumIMResultDataType {
 	IMRDT_IMAGE = 1,
@@ -1382,12 +1425,15 @@ declare enum EnumLocalizationMode {
 	LM_STATISTICS = 4,
 	LM_SCAN_DIRECTLY = 16,
 	LM_STATISTICS_MARKS = 32,
-	LM_STATISTICS_POSTAL_CODE = 64
+	LM_STATISTICS_POSTAL_CODE = 64,
+	LM_CENTRE = 128,
+	LM_REV = 2147483648
 }
 declare enum EnumPDFReadingMode {
 	PDFRM_RASTER = 1,
 	PDFRM_AUTO = 2,
-	PDFRM_VECTOR = 4
+	PDFRM_VECTOR = 4,
+	PDFRM_REV = 2147483648
 }
 declare enum EnumQRCodeErrorCorrectionLevel {
 	QRECL_ERROR_CORRECTION_H = 0,
@@ -1401,7 +1447,8 @@ declare enum EnumRegionPredetectionMode {
 	RPM_GENERAL_RGB_CONTRAST = 4,
 	RPM_GENERAL_GRAY_CONTRAST = 8,
 	RPM_GENERAL_HSV_CONTRAST = 16,
-	RPM_SKIP = 0
+	RPM_SKIP = 0,
+	RPM_REV = 2147483648
 }
 declare enum EnumResultCoordinateType {
 	RCT_PIXEL = 1,
@@ -1425,23 +1472,27 @@ declare enum EnumTextAssistedCorrectionMode {
 	TACM_AUTO = 1,
 	TACM_VERIFYING = 2,
 	TACM_VERIFYING_PATCHING = 4,
-	TACM_SKIP = 0
+	TACM_SKIP = 0,
+	TACM_REV = 2147483648
 }
 declare enum EnumTextFilterMode {
 	TFM_AUTO = 1,
 	TFM_GENERAL_CONTOUR = 2,
-	TFM_SKIP = 0
+	TFM_SKIP = 0,
+	TFM_REV = 2147483648
 }
 declare enum EnumTextResultOrderMode {
 	TROM_CONFIDENCE = 1,
 	TROM_POSITION = 2,
 	TROM_FORMAT = 4,
-	TROM_SKIP = 0
+	TROM_SKIP = 0,
+	TROM_REV = 2147483648
 }
 declare enum EnumTextureDetectionMode {
 	TDM_AUTO = 1,
 	TDM_GENERAL_WIDTH_CONCENTRATION = 2,
-	TDM_SKIP = 0
+	TDM_SKIP = 0,
+	TDM_REV = 2147483648
 }
 declare const Dynamsoft: {
 	BarcodeReader: typeof BarcodeReader;

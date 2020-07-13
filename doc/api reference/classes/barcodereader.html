@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BarcodeReader | Dynamsoft BarcodeReader SDK for Javascript - v7.4.0-v1</title>
-	<meta name="description" content="Documentation for Dynamsoft BarcodeReader SDK for Javascript - v7.4.0-v1">
+	<title>BarcodeReader | Dynamsoft BarcodeReader SDK for Javascript - v0.20200713100920.0</title>
+	<meta name="description" content="Documentation for Dynamsoft BarcodeReader SDK for Javascript - v0.20200713100920.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Dynamsoft BarcodeReader SDK for Javascript - v7.4.0-v1</a>
+					<a href="../index.html" class="title">Dynamsoft BarcodeReader SDK for Javascript - v0.20200713100920.0</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -97,12 +97,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="barcodereader.html#bdestroyed" class="tsd-kind-icon">b<wbr>Destroyed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="barcodereader.html#bsaveoricanvas" class="tsd-kind-icon">b<wbr>Save<wbr>Ori<wbr>Canvas</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="barcodereader.html#oricanvas" class="tsd-kind-icon">ori<wbr>Canvas</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="barcodereader.html#_busefullfeature" class="tsd-kind-icon">_b<wbr>Use<wbr>Full<wbr>Feature</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-static"><a href="barcodereader.html#_busefullfeature" class="tsd-kind-icon">_b<wbr>Use<wbr>Full<wbr>Feature</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-static"><a href="barcodereader.html#engineresourcepath" class="tsd-kind-icon">engine<wbr>Resource<wbr>Path</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-static"><a href="barcodereader.html#productkeys" class="tsd-kind-icon">product<wbr>Keys</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="barcodereader.html#version" class="tsd-kind-icon">version</a></li>
@@ -147,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">b<wbr>Destroyed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/class/barcodereader.ts:388</li>
+							<li>Defined in src/class/barcodereader.ts:431</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -162,7 +162,7 @@
 					<div class="tsd-signature tsd-kind-icon">b<wbr>Save<wbr>Ori<wbr>Canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/class/barcodereader.ts:361</li>
+							<li>Defined in src/class/barcodereader.ts:371</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -180,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">ori<wbr>Canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in src/class/barcodereader.ts:370</li>
+							<li>Defined in src/class/barcodereader.ts:380</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -192,45 +192,41 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="_busefullfeature" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> _b<wbr>Use<wbr>Full<wbr>Feature</h3>
-					<div class="tsd-signature tsd-kind-icon">_b<wbr>Use<wbr>Full<wbr>Feature<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = bNode</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in src/class/barcodereader.ts:340</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether to use full feature wasm.
-							The api may change in later version.</p>
-							<pre>
-Min wasm:
-oned + qr + pdf417 + datamatrix.
-===
-Full wasm:
-all supported barcode format +
-high level deblur available (lv8, 9) +
-DPM +
-template API +
-intermediate results API
-===
-e.g.:
-Use min in video deocode (small, download and initialization fast).
-Use full in file decode (need high level deblur).
-</pre>
-						</div>
-						<p>Need to be set before loadWasm.</p>
-						<pre><code class="language-js">Dynamsoft.BarcodeReader._bUseFullFeature = <span class="hljs-literal">true</span>;
-<span class="hljs-keyword">await</span> Dynamsoft.BarcodeReader.loadWasm();</code></pre>
-						<p>For web, <code>_bUseFullFeature</code> is false as default.
-						For Node.js, <code>_bUseFullFeature</code> will not work, and BarcodeReader will always work on full feature.</p>
-					</div>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-static">
+					<a name="_busefullfeature" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> _b<wbr>Use<wbr>Full<wbr>Feature</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> _bUseFullFeature<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> _bUseFullFeature<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/class/barcodereader.ts:342</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in src/class/barcodereader.ts:344</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-static">
 					<a name="engineresourcepath" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> engine<wbr>Resource<wbr>Path</h3>
@@ -351,7 +347,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:1780</li>
+									<li>Defined in src/class/barcodereader.ts:1966</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -374,7 +370,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:708</li>
+									<li>Defined in src/class/barcodereader.ts:752</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -397,7 +393,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:382</li>
+									<li>Defined in src/class/barcodereader.ts:425</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,7 +415,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:394</li>
+									<li>Defined in src/class/barcodereader.ts:437</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -444,7 +440,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:731</li>
+									<li>Defined in src/class/barcodereader.ts:775</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,7 +472,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:797</li>
+									<li>Defined in src/class/barcodereader.ts:842</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -509,7 +505,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:905</li>
+									<li>Defined in src/class/barcodereader.ts:961</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +548,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:812</li>
+									<li>Defined in src/class/barcodereader.ts:857</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -587,7 +583,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:1638</li>
+									<li>Defined in src/class/barcodereader.ts:1824</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -622,7 +618,7 @@ Use full in file decode (need high level deblur).
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:977</li>
+									<li>Defined in src/class/barcodereader.ts:1033</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -652,7 +648,7 @@ settings.deblurLevel = <span class="hljs-number">5</span>;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:1094</li>
+									<li>Defined in src/class/barcodereader.ts:1160</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -675,7 +671,7 @@ settings.deblurLevel = <span class="hljs-number">5</span>;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:1596</li>
+									<li>Defined in src/class/barcodereader.ts:1782</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -713,7 +709,7 @@ settings.deblurLevel = <span class="hljs-number">5</span>;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in src/class/barcodereader.ts:1011</li>
+									<li>Defined in src/class/barcodereader.ts:1067</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -793,7 +789,7 @@ settings.barcodeFormatIds = Dynamsoft.EnumBarcodeFormat.BF_ONED;
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="barcodereader.html#oricanvas" class="tsd-kind-icon">ori<wbr>Canvas</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-static">
 								<a href="barcodereader.html#_busefullfeature" class="tsd-kind-icon">_b<wbr>Use<wbr>Full<wbr>Feature</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-static">
@@ -870,11 +866,10 @@ settings.barcodeFormatIds = Dynamsoft.EnumBarcodeFormat.BF_ONED;
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
