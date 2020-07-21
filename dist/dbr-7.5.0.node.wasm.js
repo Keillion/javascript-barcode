@@ -271,7 +271,7 @@ function Pa() {
   e.HEAPF32 = Na = new Float32Array(buffer);
   e.HEAPF64 = Oa = new Float64Array(buffer);
 }
-var ta = 2025152;
+var ta = 2025104;
 assert(!0, "stack must start aligned");
 assert(!0, "heap must start aligned");
 e.TOTAL_STACK && assert(5242880 === e.TOTAL_STACK, "the stack size can no longer be determined at runtime");
@@ -286,9 +286,9 @@ Aa && (buffer = Aa.buffer);
 Qa = buffer.byteLength;
 assert(0 === Qa % 65536);
 Pa();
-r[ta >> 2] = 7268048;
+r[ta >> 2] = 7268000;
 function Ra() {
-  var a = A[506293], b = A[506294];
+  var a = A[506281], b = A[506282];
   34821223 == a && 2310721022 == b || l("Stack overflow! Stack cookie has been overwritten, expected hex dwords 0x89BACDFE and 0x02135467, but received 0x" + b.toString(16) + " " + a.toString(16));
   1668509029 !== r[0] && l("Runtime error: The application has corrupted its heap memory area (address zero)!");
 }
@@ -2476,7 +2476,7 @@ function me(a) {
   me.ka = c;
   return me.ka;
 }
-Ha("GMT", 2025056, 4);
+Ha("GMT", 2025008, 4);
 function ne() {
   function a(a) {
     return (a = a.toTimeString().match(/\(([A-Za-z ]+)\)$/)) ? a[1] : "GMT";
@@ -3470,7 +3470,7 @@ var Z = e.asm({}, {ClassHandle:Tc, ClassHandle_clone:ad, ClassHandle_delete:bd, 
 }, exposePublicSymbol:kd, extendError:Nc, fabs:ab, fabsf:ab, floatReadValueFromPointer:Yd, floor:db, flushPendingDeletes:fd, genericPointerToWireType:pd, getBasestPointer:Cd, getInheritedInstance:Dd, getInheritedInstanceCount:xd, getLiveInheritedInstances:zd, getShiftFromSize:Fc, getTempRet0:function() {
   return ya | 0;
 }, getTypeName:Ld, get_first_emval:Wd, getenv:me, heap32VectorToArray:Rd, init_ClassHandle:hd, init_RegisteredPointer:Gd, init_embind:Bd, init_emval:Xd, integerReadValueFromPointer:Zd, invoke_ii:Be, invoke_iii:Ce, invoke_iiii:De, invoke_iiiii:Ee, invoke_iiiiii:Fe, invoke_iiiiiii:Ge, invoke_iiiiiiii:He, invoke_iiiiiiiiii:Ie, invoke_vi:Je, invoke_vii:Ke, invoke_viii:Le, invoke_viiii:Me, invoke_viiiii:Ne, invoke_viiiiii:Oe, invoke_viiiiiiiii:Pe, jsStackTrace:ub, localtime:function(a) {
-  return re(a, 2025008);
+  return re(a, 2024960);
 }, localtime_r:re, longjmp:ke, makeClassHandle:Ed, makeLegalFunctionName:Lc, memcpy:function(a, b, c) {
   a |= 0;
   b |= 0;
@@ -4703,8 +4703,8 @@ function pg() {
   }
   if (!(0 < fb)) {
     assert(!0);
-    A[506293] = 34821223;
-    A[506294] = 2310721022;
+    A[506281] = 34821223;
+    A[506282] = 2310721022;
     if (e.preRun) {
       for ("function" == typeof e.preRun && (e.preRun = [e.preRun]); e.preRun.length;) {
         Ya();

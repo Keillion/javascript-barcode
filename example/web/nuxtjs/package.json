@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "keillion-dynamsoft-javascript-barcode": "0.20200713100920.0"
+    "keillion-dynamsoft-javascript-barcode": "0.20200721112312.0"
   },
   "devDependencies": {}
 }

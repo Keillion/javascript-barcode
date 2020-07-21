@@ -8,6 +8,6 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "keillion-dynamsoft-javascript-barcode": "0.20200713100920.0"
+    "keillion-dynamsoft-javascript-barcode": "0.20200721112312.0"
   }
 }

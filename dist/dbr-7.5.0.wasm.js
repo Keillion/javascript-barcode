@@ -256,7 +256,7 @@ function La() {
   e.HEAPF32 = Ja = new Float32Array(buffer);
   e.HEAPF64 = Ka = new Float64Array(buffer);
 }
-var qa = 1047744;
+var qa = 1047728;
 assert(!0, "stack must start aligned");
 assert(!0, "heap must start aligned");
 e.TOTAL_STACK && assert(5242880 === e.TOTAL_STACK, "the stack size can no longer be determined at runtime");
@@ -271,9 +271,9 @@ wa && (buffer = wa.buffer);
 Ma = buffer.byteLength;
 assert(0 === Ma % 65536);
 La();
-p[qa >> 2] = 6290640;
+p[qa >> 2] = 6290624;
 function Na() {
-  var a = y[261941], b = y[261942];
+  var a = y[261937], b = y[261938];
   34821223 == a && 2310721022 == b || m("Stack overflow! Stack cookie has been overwritten, expected hex dwords 0x89BACDFE and 0x02135467, but received 0x" + b.toString(16) + " " + a.toString(16));
   1668509029 !== p[0] && m("Runtime error: The application has corrupted its heap memory area (address zero)!");
 }
@@ -2437,7 +2437,7 @@ function be(a) {
   be.ja = c;
   return be.ja;
 }
-Da("GMT", 1047648, 4);
+Da("GMT", 1047632, 4);
 function ce() {
   function a(a) {
     return (a = a.toTimeString().match(/\(([A-Za-z ]+)\)$/)) ? a[1] : "GMT";
@@ -3418,7 +3418,7 @@ var Z = e.asm({}, {ClassHandle:Oc, ClassHandle_clone:Wc, ClassHandle_delete:Xc, 
   return eval(x(a)) | 0;
 }, emscripten_run_script_string:Y, ensureOverloadTable:ed, exposePublicSymbol:fd, extendError:Jc, fabs:Xa, fabsf:Xa, floatReadValueFromPointer:Rd, floor:$a, flushPendingDeletes:ad, genericPointerToWireType:kd, getBasestPointer:xd, getInheritedInstance:yd, getInheritedInstanceCount:sd, getLiveInheritedInstances:ud, getShiftFromSize:Bc, getTypeName:Ed, get_first_emval:Pd, getenv:be, heap32VectorToArray:Kd, init_ClassHandle:cd, init_RegisteredPointer:Bd, init_embind:wd, init_emval:Qd, integerReadValueFromPointer:Sd, 
 jsStackTrace:qb, localtime:function(a) {
-  return ge(a, 1047600);
+  return ge(a, 1047584);
 }, localtime_r:ge, makeClassHandle:zd, makeLegalFunctionName:Hc, memcpy:function(a, b, c) {
   a |= 0;
   b |= 0;
@@ -4434,8 +4434,8 @@ function xf() {
   }
   if (!(0 < bb)) {
     assert(!0);
-    y[261941] = 34821223;
-    y[261942] = 2310721022;
+    y[261937] = 34821223;
+    y[261938] = 2310721022;
     if (e.preRun) {
       for ("function" == typeof e.preRun && (e.preRun = [e.preRun]); e.preRun.length;) {
         Ua();

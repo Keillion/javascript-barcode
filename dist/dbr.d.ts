@@ -860,6 +860,9 @@ export declare class BarcodeScanner extends BarcodeReader {
 	private _region;
 	private set region(value);
 	private get region();
+	private _barcodeCount;
+	private set expectedBarcodesCount(value);
+	private get expectedBarcodesCount();
 	/**
 	 * @ignore
 	 */
